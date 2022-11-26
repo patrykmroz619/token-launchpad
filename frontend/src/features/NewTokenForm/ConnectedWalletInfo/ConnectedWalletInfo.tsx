@@ -16,7 +16,7 @@ export const ConnectedWalletInfo = () => {
       {isSupportedChain ? (
         <>
           <Typography>
-            <strong>Connected chain:</strong> {chainData.name}...
+            <strong>Connected chain:</strong> {chainData.name}
           </Typography>
           <Typography>
             <strong>Native currency balance:</strong> {balance}{" "}
