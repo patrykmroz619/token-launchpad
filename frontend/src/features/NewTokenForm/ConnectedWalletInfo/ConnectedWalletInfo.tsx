@@ -3,10 +3,8 @@ import { useWeb3Wallet } from "@/contexts";
 import { Typography } from "@mui/material";
 
 export const ConnectedWalletInfo = () => {
-  const { account, chainId, isSupportedChain, balance } = useWeb3Wallet();
-
-  // @ts-ignore
-  const chainData = CONFIG.CHAINS[chainId || 0] as typeof CONFIG.CHAINS[1];
+  const { account, chainId, isSupportedChain, balance, chainData } =
+    useWeb3Wallet();
 
   return (
     <div>

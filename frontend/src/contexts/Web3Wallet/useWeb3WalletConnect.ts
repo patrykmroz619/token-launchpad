@@ -185,5 +185,17 @@ export const useWeb3WalletContextData = () => {
     String(connection.chainId)
   );
 
-  return { ...connection, connectWallet, error, disconnect, isSupportedChain };
+  // @ts-ignore
+  const chainData = CONFIG.CHAINS[
+    connection.chainId || 0
+  ] as typeof CONFIG.CHAINS[1];
+
+  return {
+    ...connection,
+    connectWallet,
+    error,
+    disconnect,
+    isSupportedChain,
+    chainData,
+  };
 };

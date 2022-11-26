@@ -1,5 +1,6 @@
 import { useWeb3Wallet } from "@/contexts";
 import { Button, Card, TextField, Typography } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 import { MouseEvent } from "react";
 import { Controller } from "react-hook-form";
 import { ConnectedWalletInfo } from "./ConnectedWalletInfo";
@@ -10,7 +11,7 @@ export const NewTokenForm = () => {
   const { isWalletConnected, connectWallet, isSupportedChain } =
     useWeb3Wallet();
 
-  const { control, handleSubmit } = useCreateNewToken();
+  const { control, handleSubmit, isLoading } = useCreateNewToken();
 
   const handleConnectWallet = (e: MouseEvent) => {
     e.preventDefault();
@@ -60,14 +61,15 @@ export const NewTokenForm = () => {
         {isWalletConnected ? (
           <>
             <ConnectedWalletInfo />
-            <Button
+            <LoadingButton
               size="large"
               variant="contained"
               disabled={!isSupportedChain}
               type="submit"
+              loading={isLoading}
             >
               Create token
-            </Button>
+            </LoadingButton>
           </>
         ) : (
           <Button
