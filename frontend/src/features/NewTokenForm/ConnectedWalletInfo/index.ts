@@ -1,0 +1,1 @@
+export { ConnectedWalletInfo } from "./ConnectedWalletInfo";
